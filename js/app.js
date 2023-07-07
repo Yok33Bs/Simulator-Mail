@@ -15,6 +15,15 @@ document.addEventListener('DOMContentLoaded', function(){
         
     };
 
+    function cleanMail() {
+        for(atribute in mail){
+            mail[atribute]='';
+        };
+
+        comprobarMail();       
+        form.reset()
+    }
+
     form.addEventListener('submit', enviarMail)
 
     function enviarMail(e) {
@@ -25,19 +34,15 @@ document.addEventListener('DOMContentLoaded', function(){
 
         setTimeout(()=>{
             spinner.classList.remove('flex');
-        spinner.classList.add('hidden');
+            spinner.classList.add('hidden');
+            
+            cleanMail()
         },3000)
     }
 
     btnReset.addEventListener('click',function(e){
         e.preventDefault();
-        
-        for(atribute in mail){
-            mail[atribute]='';
-        }
-        
-        comprobarMail();       
-        form.reset()
+        cleanMail()
     })
     
     email.addEventListener('input',validar);
