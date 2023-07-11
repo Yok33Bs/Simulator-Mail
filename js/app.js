@@ -13,8 +13,7 @@ document.addEventListener('DOMContentLoaded', function(){
     const mail = {
         email : '',
         asunto : '',
-        mensaje : '',
-        
+        mensaje : ''    
     };
 
     function cleanMail() {
@@ -32,22 +31,21 @@ document.addEventListener('DOMContentLoaded', function(){
         e.preventDefault();
         cleanMail()
     })
-    
+
     email.addEventListener('input',validar);
     asunto.addEventListener('input',validar);
     mensaje.addEventListener('input',validar);
+
     optionalEmail.addEventListener('input',function(e){
         borrarAlerta(e.target.parentElement);
         if(e.target.value.trim() !== '') {
-
             if(mail['email'] !=  e.target.value.trim()){
                 if(verificarEmail(e.target.value)){
                     mail['email'] += `, ${e.target.value}`;
                 } else{
                     alertaHTML(e.target.parentElement,'**Email Invalido**');
                 };
-            }
-
+            };
         };
         return;        
     })
