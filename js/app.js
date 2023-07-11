@@ -42,8 +42,7 @@ document.addEventListener('DOMContentLoaded', function(){
 
             if(mail['email'] !=  e.target.value.trim()){
                 if(verificarEmail(e.target.value)){
-                    mail['email'] += `, ${e.target.value}` 
-                    console.log(mail);
+                    mail['email'] += `, ${e.target.value}`;
                 } else{
                     alertaHTML(e.target.parentElement,'**Email Invalido**');
                 };
